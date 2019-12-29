@@ -37,11 +37,11 @@
                                     <i class="fa fa-youtube-play" style="font-size:46px;color:red; margin:0 11px;line-height: 46px;"></i> -->
                         </div>
                         <div class="col-4" id="animated-menu-icon">
-                            <img src="images/menu-open.png" class="img-fluid float-right animated-icon1 bounce"
-                                onclick="openNav()" alt="live">
-                            <!-- <div class="animated-icon1 float-right mt-4" onclick="openNav()">
+                            <!-- <img src="images/menu-open.png" class="img-fluid float-right animated-icon1 bounce"
+                                onclick="openNav()" alt="live"> -->
+                            <div class="animated-icon1 float-right mt-4" onclick="openNav()">
                                 <span></span><span></span><span></span>
-                            </div> -->
+                            </div>
                         </div>
                     </div>
 
@@ -65,10 +65,10 @@
                                     <a href="#" class="login">BITE MEMBERSHIP</a>
 
                                 </div>
-                                <div class="col-2">
+                                <!-- <div class="col-2">
                                     <a href="javascript:void(0)" class="ml-auto closebtn"
                                         onclick="closeNav()">&times;</a>
-                                </div>
+                                </div> -->
 
                             </div>
                         </div>
@@ -523,26 +523,42 @@
         function checkForActive() {
             var ind = 0;
             $('#recipeCarousel .carousel-item').each(function (i, el) {
-                if (el.className.includes('active'))
+                if (el.className.includes('active')){
                     ind = i
+                }
             })
             return ind
         }
 
-        function showText() {
+        function showText(leftRight) {
             $('#recipeCarousel-main .card-body').css({
                 opacity: 0
             })
+            var cls;
+            if(leftRight == 1){
+                cls = 'animation-duration bounceInRight'
+            }else{
+                cls = 'animation-duration bounceInLeft'
+            }
+
             if (window.innerWidth < 768) {
+                console.log('usao');
+                
                 $('#recipeCarousel-main .active .col-md-4:nth-child(1) .card-body').css({
                     opacity: 1
                 })
-                $('#recipeCarousel-main .active .col-md-4:nth-child(1) .card-body').addClass('animation-duration bounceInRight')
+                $('#recipeCarousel-main .active .col-md-4:nth-child(1) .card-body').addClass(cls)
+                setTimeout(function(){
+                    $('#recipeCarousel-main .active .col-md-4:nth-child(1) .card-body').removeClass(cls)
+                },600)
             } else {
                 $('#recipeCarousel-main .active .col-md-4:nth-child(2) .card-body').css({
                     opacity: 1
                 })
-                $('#recipeCarousel-main .active .col-md-4:nth-child(2) .card-body').addClass('animation-duration bounceInRight')
+                $('#recipeCarousel-main .active .col-md-4:nth-child(2) .card-body').addClass(cls)
+                setTimeout(function(){
+                    $('#recipeCarousel-main .active .col-md-4:nth-child(2) .card-body').removeClass(cls)
+                },600)
             }
         }
 
@@ -561,30 +577,42 @@
         $(document).ready(function () {
             var count = countActive();
 
-            $('.first-button').on('click', function () {
+            $('.animated-icon1').on('click', function () {
 
                 $('.animated-icon1').toggleClass('open');
+                if(!$('.animated-icon1').hasClass('open')){
+                    closeNav()
+                }else
+                    openNav()
             });
-            $('.second-button').on('click', function () {
+            // $('.second-button').on('click', function () {
 
-                $('.animated-icon2').toggleClass('open');
-            });
-            $('.third-button').on('click', function () {
+            //     $('.animated-icon2').toggleClass('open');
+            // });
+            // $('.third-button').on('click', function () {
 
-                $('.animated-icon3').toggleClass('open');
-            });
+            //     $('.animated-icon3').toggleClass('open');
+            // });
 
             $('#recipeCarousel-main').bind('wheel', function (e) {
+                var leftRight = 0;
                 if (e.originalEvent.wheelDelta / 120 < 0) {
                     $(this).carousel('next');
+                    leftRight = 1;
                 } else {
                     $(this).carousel('prev');
+                    leftRight = -1;
                 }
-                changeText()
+                changeText(leftRight)
             });
             $('.carousel-controls-main .carousel-control-prev,.carousel-controls-main .carousel-control-next')
                 .bind('click', function (e) {
-                    changeText()
+                    var leftRight = 0;
+                    if($('.'+e.target.parentElement.className).hasClass('carousel-control-prev'))
+                        leftRight = -1;
+                    else if($('.'+e.target.parentElement.className).hasClass('carousel-control-next'))
+                        leftRight = 1;
+                    changeText(leftRight)
                 })
 
             $('.carousel-controls .carousel-control-prev,.carousel-controls .carousel-control-next').bind(
@@ -616,12 +644,12 @@
                     }, 700)
                 })
 
-            function changeText() {
+            function changeText(leftRight) {
                 $('#recipeCarousel-main .card-body').css({
                     opacity: 0
                 })
                 setTimeout(function () {
-                    showText()
+                    showText(leftRight)
                 }, 700)
             }
             $('#recipeCarousel').bind('wheel', function (e) {

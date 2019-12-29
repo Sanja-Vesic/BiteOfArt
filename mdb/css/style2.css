@@ -139,7 +139,10 @@ body {
   transition: 0.5s ease-in-out;
   cursor: pointer;
 }
-
+.animated-icon1{
+  right: 10%;
+  z-index:12;
+}
 .animated-icon1 span,
 .animated-icon2 span,
 .animated-icon3 span {
@@ -164,7 +167,7 @@ body {
 .animated-icon1 span {
   width: 40px;
   background: #cdd1d3;
-  height: 9px;
+  height: 6px;
   margin: 0 10px;
 }
 
@@ -188,30 +191,29 @@ body {
 }
 
 .animated-icon1 span:nth-child(3) {
-  width: 50%;
   top: 20px;
-  margin: 14px 0px;
+  margin: 12px 0px;
 }
 
 .animated-icon1.open span:nth-child(1) {
-  top: 11px;
-  -webkit-transform: rotate(135deg);
-  -moz-transform: rotate(135deg);
-  -o-transform: rotate(135deg);
-  transform: rotate(135deg);
+  top: 10px;
+  -webkit-transform: translateY(6px);
+  -moz-transform: translateY(6px);
+  -o-transform: translateY(6px);
+  transform: translateY(6px);
 }
 
-.animated-icon1.open span:nth-child(2) {
+/* .animated-icon1.open span:nth-child(2) {
   opacity: 0;
   left: -60px;
-}
+} */
 
 .animated-icon1.open span:nth-child(3) {
   top: 11px;
-  -webkit-transform: rotate(-135deg);
-  -moz-transform: rotate(-135deg);
-  -o-transform: rotate(-135deg);
-  transform: rotate(-135deg);
+  -webkit-transform: translateY(-6px);
+  -moz-transform: translateY(-6px);
+  -o-transform: translateY(-6px);
+  transform: translateY(-6px);
 }
 
 .TEST {
@@ -223,8 +225,13 @@ body {
   margin-top: 4em;
 }
 
+.open span{
+  background: #fff;
+}
 
-
+.open span:hover{
+  background:#cdd1d3;
+}
 
 .carousel-inner .carousel-item.active,
 .carousel-inner .carousel-item-next,
