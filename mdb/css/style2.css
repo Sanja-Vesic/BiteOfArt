@@ -1,5 +1,5 @@
 body {
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 .col-md-4,
@@ -45,11 +45,10 @@ body {
   }
 }
 
-@media (min-width: 768px) {
-  .col-md-20 {
-    flex: 0 0 20% !important;
-    max-width: 20% !important;
-  }
+.text-center{
+  display:flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .closebtn:hover {
@@ -94,11 +93,6 @@ body {
   background: #fff;
 }
 
-.logo {
-  width: 133px;
-  /* color: white; */
-  height: 92px;
-}
 
 .bg-danger {
   position: absolute;
@@ -113,10 +107,10 @@ body {
   font-size: 53px;
 }
 
-/* 
+
 .row {
-  margin: 10px 0;
-} */
+  position: relative;
+}
 
 
 
@@ -142,6 +136,7 @@ body {
 .animated-icon1{
   right: 10%;
   z-index:12;
+  margin-top: 5%;
 }
 .animated-icon1 span,
 .animated-icon2 span,
@@ -290,12 +285,12 @@ body {
   } */
   .carousel-controls-main {
     left: -3%;
-    top: 58%;
+    top: 85%;
   }
 
   .carousel-controls {
     left: -3%;
-    top: 89%;
+    top: 75%;
   }
 
 
@@ -303,23 +298,28 @@ body {
   .carousel-control-next {
     left: 111%;
   }
-
+  .col-md-20 {
+    flex: 0 0 20% !important;
+    max-width: 20% !important;
+  }
 
 }
+
+
 
 @media (max-width: 768px) {
   html {
     touch-action: none;
   }
-
+  
   .carousel-inner .carousel-item>div {
     display: none;
   }
-
+  
   .carousel-inner .carousel-item>div:first-child {
     display: block;
   }
-
+  
   /* #recipeCarousel-main .active .col-md-4:nth-child(1) .card-body{
     opacity: 1;
   } */
@@ -327,45 +327,41 @@ body {
     left: 3%;
     top: 60%;
   }
-
+  
   .carousel-controls {
     top: 94%;
     left: 3%;
   }
 
-  .logo {
-    width: 120px;
-    height: 70px;
-  }
-
+  
   .bg-danger {
     left: 43%
   }
-
+  
   .bg-danger p {
     font-size: 40px;
     margin-top: 0;
     line-height: 28px;
   }
-
+  
   .fa {
     font-size: 40px !important;
     line-height: 28px !important;
   }
-
+  
   .navbar-toggler {
     padding: 0;
   }
-
-
+  
+  
   .carousel-control-prev {
     left: -9%;
   }
-
+  
   .carousel-control-next {
     left: 107%;
   }
-
+  
 }
 
 .carousel-inner .carousel-item-right,
@@ -374,7 +370,7 @@ body {
 }
 
 .bg-dark-mobile {
-      overflow: hidden;
+  overflow: hidden;
   /* padding:0; */
   height: 0%;
   width: 100%;
@@ -386,17 +382,17 @@ body {
   /* background-color: rgba(0,0,0, 0.9) !important; */
   overflow-y: hidden;
   transition: 0.5s;
-
+  
 }
 
 .closebtn {
-
+  
   font-size: 60px;
   color: white;
   float: right;
   margin-right: 1em;
   margin-top: 0.27em;
-
+  
 }
 
 #navbarNav li a {
@@ -405,13 +401,13 @@ body {
   color: white;
   font-weight: bold;
   font-size: 44pt;
-
+  
 }
 
 .navbar-light .navbar-toggler {
   /* border-color: white !important; */
   border: none !important;
-
+  
 }
 
 .page-heading {
@@ -421,7 +417,7 @@ body {
 .row .mt-3 {
   display: flex;
   flex-wrap: nowrap;
-
+  
 }
 
 
@@ -429,7 +425,7 @@ body {
   border:none !important;
 }
 .card-img-top {
-
+  
   border-top-left-radius: initial !important;
   border-top-right-radius: initial !important;
 }
@@ -465,17 +461,17 @@ body {
 .grey-text {
   color:#818181;
   /*privremena velicina teksta*/
-
+  
   font-weight: bold;
   font-size:15pt;
 }
 
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
-
+  
   width: 35px !important;
   height: 35px !important;
-
+  
 }
 
 .carousel-control-prev-icon:hover,
@@ -517,21 +513,21 @@ body {
   margin-top: 8rem !important;
 }
 
-	.login {
-	  line-height: 4.5em;
-	  color: white !important;
-    font-size: 21pt;
-    /* font-family: montserrat-regular; */
-  }
-  
-  .menu-span {
-    color:white;
-    font-size: 21pt;
-  }
+.login {
+  line-height: 4.5em;
+  color: white !important;
+  font-size: 21pt;
+  /* font-family: montserrat-regular; */
+}
 
-	.menu-footer {
-	  margin-top: 6em;
-	}
+.menu-span {
+  color:white;
+  font-size: 21pt;
+}
+
+.menu-footer {
+  margin-top: 6em;
+}
 .footer {
   position: fixed;
   bottom: 0;
@@ -562,7 +558,7 @@ body {
 .montserrat-light {
   font-family: montserrat-light;
   font-weight: bold;
- 
+  
 }
 
 .montserrat-regular {
@@ -572,10 +568,75 @@ body {
 }
 #navbarNav li:hover,
 #navbarNav li a:hover{
-background-color: white;
-color:#c2c3c5
+  background-color: white;
+  color:#c2c3c5
 }
 
 .animation-duration {
   animation-duration: 0.6s;
+}
+
+@media (max-width: 512px){
+  .animated-icon1 {
+    right: 35%;
+    top: 0%;
+    margin-top: 10%;
+  }
+  .animated-icon1 span{
+    width: 30px;
+  }
+  .animated-icon1 span:nth-child(2) {
+    top: 10px;
+    margin: 3px 0px;
+  }
+  
+  .animated-icon1 span:nth-child(3) {
+    top: 20px;
+    margin: 6px 0px;
+  }
+  .logo {
+    left: -5%;
+  }
+  .card-title,.card-text{
+    font-size: 15px;
+  }
+  .carousel-controls-main, .carousel-controls {
+    width: 77% !important;
+    left: 2%;
+  }
+  .carousel-controls-main{
+    top: 80%;
+  }
+  .carousel-controls{
+    top:83%;
+  }
+  .navbar-nav li a{
+    font-size: 18px!important;
+  }
+  .nav-item a{
+    margin-left:32%;
+  }
+  .login{
+    font-size:15px;
+  }
+  #navbarNav .row .col-10{
+    position: absolute;
+    top: 40px;
+    left: -80px;
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  #navbarNav .offset-4{
+    margin-left: 0;
+  }
+}
+
+
+@media (max-width: 1440px){
+  #recipeCarousel-main .carousel-inner{
+    left: -18%;
+  }
+  .grey-text{
+    font-size: 15px;
+  }
 }
